@@ -9,8 +9,13 @@ namespace Common.Entities
     public class User
     {
         public int Id { get; set; }
-        public string Email { get; set; }
+        public string Username { get; set; }
         public string Password { get; set; }
-        public Profile Profile { get; set; }
+        public bool IsLoggedIn { get; set; }
+
+
+        public ICollection<User> Friends { get; set; } = new List<User>();
+
+
     }
 }

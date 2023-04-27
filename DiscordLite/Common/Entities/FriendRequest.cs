@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Common.Entities
 {
-    public class Profile
+    public class FriendRequest
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public string DisplayName { get; set; }
-        public string Description { get; set; }
+        public int SenderUserId { get; set; }
+        public int ReceiverUserId { get; set; }
+        public DateTime RequestDate { get; set; }
+
+
     }
 }

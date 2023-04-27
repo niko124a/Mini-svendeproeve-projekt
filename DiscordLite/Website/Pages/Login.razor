@@ -1,0 +1,16 @@
+﻿@page "/"
+
+<MudGrid>
+    <MudItem xs="12" md="12" lg="12" Class="d-flex justify-center">
+        <MudPaper Width="50rem" Class="pa-4">
+            <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" ReadOnly="false">
+                <MudTextField T="string" Label="Username" Required="true" RequiredError="User name is required!" />
+                <MudTextField T="string" Label="Password" Required="true" RequiredError="Password is required!" @ref="pwField1"
+                              InputType="InputType.Password" />
+                <MudItem Class="d-flex align-center justify-space-between mt-4">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Login</MudButton>
+                </MudItem>
+            </MudForm>
+        </MudPaper>
+    </MudItem>
+</MudGrid>
