@@ -16,6 +16,23 @@ namespace Database.Repositories
             this.discordLiteContext = discordLiteContext;
         }
 
+        public User GetUserByUsername(string username)
+        {
+            try
+            {
+                User dbUser = discordLiteContext.User
+                .Where(user => user.Username == username)
+                .SingleOrDefault();
 
+                return dbUser;
+            }
+            catch (Exception exception)
+            {
+
+                throw;
+            }
+
+
+        }
     }
 }

@@ -4,8 +4,8 @@
     <MudItem xs="12" md="12" lg="12" Class="d-flex justify-center">
         <MudPaper Width="50rem" Class="pa-4">
             <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" ReadOnly="false">
-                <MudTextField T="string" Label="Username" Required="true" RequiredError="User name is required!" />
-                <MudTextField T="string" Label="Password" HelperText="Choose a strong password" @ref="pwField1"
+                <MudTextField T="string" Label="Username" Required="true" RequiredError="User name is required!" @ref="usernameField" />
+                <MudTextField T="string" Label="Password" HelperText="Choose a strong password" @ref="passwordField"
                               InputType="InputType.Password"
                               Validation="@(new Func<string, IEnumerable<string>>(PasswordStrength))" Required="true"
                               RequiredError="Password is required!" />
@@ -13,7 +13,7 @@
                               Label="Password" HelperText="Repeat the password" InputType="InputType.Password"
                               Validation="@(new Func<string, string>(PasswordMatch))" />
                 <div class="d-flex align-center justify-space-between">
-                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Register</MudButton>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto" OnClick="RegisterUser">Register</MudButton>
                 </div>
             </MudForm>
         </MudPaper>

@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <None Remove="Pages\Index.razor.cs~RF1cbbc8fe.TMP" />
+    <None Remove="Pages\Login.razor~RF1f5dd573.TMP" />
+    <None Remove="Pages\Login.razor~RF1f92ab35.TMP" />
     <None Remove="Program.cs~RF1dfb52b0.TMP" />
   </ItemGroup>
 

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="azwsnxtk.mtq~" />
+    <None Remove="DiscordLiteContext.cs~RF1e8aa5f9.TMP" />
     <None Remove="msqyprfs.zcr~" />
     <None Remove="Repositories\tagu1nve.1jj~" />
     <None Remove="s2w2asnk.gjr~" />

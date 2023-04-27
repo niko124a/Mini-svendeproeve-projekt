@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Database;
 using Database.Interfaces;
 using Database.Repositories;
+using Common.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,9 @@ builder.Services.AddResponseCompression(options =>
 
 builder.Services.AddScoped<IDiscordLiteContext, DiscordLiteContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IFriendRepository, FriendRepository>();
+builder.Services.AddScoped<IFriendRequestRepository, FriendRequestRepository>();
+builder.Services.AddScoped<PasswordHelper>();
 
 var app = builder.Build();
 
