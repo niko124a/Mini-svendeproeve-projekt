@@ -41,7 +41,7 @@ namespace Website.Pages
                 return;
             }
 
-            NavigationManager.NavigateTo("home");
+            NavigationManager.NavigateTo($"home/{dbUser.Id}");
         }
 
         private async Task NavigateToRegisterPage()

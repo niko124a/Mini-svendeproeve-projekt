@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20230427185012_ChangedUserId.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="azwsnxtk.mtq~" />
     <None Remove="DiscordLiteContext.cs~RF1e8aa5f9.TMP" />
     <None Remove="msqyprfs.zcr~" />

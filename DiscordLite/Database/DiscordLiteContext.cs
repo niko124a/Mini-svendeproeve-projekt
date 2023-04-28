@@ -23,7 +23,7 @@ namespace Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
-                .HasMany(u => u.Friends);
+                .HasMany(user => user.Friends);
         }
 
         public void StateAsModified<Entity>(Entity entity) where Entity : class => Entry(entity).State = EntityState.Modified;

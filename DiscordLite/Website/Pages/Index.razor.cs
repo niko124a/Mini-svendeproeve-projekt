@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Common.Entities;
+using Database.Interfaces;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.SignalR.Client;
 
 namespace Website.Pages
@@ -7,20 +9,28 @@ namespace Website.Pages
     {
         [Inject]
         public NavigationManager NavigationManager { get; set; }
+        [Inject]
+        public IUserRepository UserRepository { get; set; }
+
+        [Parameter]
+        public int Id { get; set; }
 
         private HubConnection? hubConnection;
         private List<string> messages = new List<string>();
-        private string? userInput;
-        private string? messageInput;
+        private string? messageInput = string.Empty;
+
+        private User CurrentUser = new User();
 
         protected override async Task OnInitializedAsync()
         {
+            CurrentUser = UserRepository.GetUserById(Id);
+
             hubConnection = new HubConnectionBuilder()
                 .WithUrl(NavigationManager.ToAbsoluteUri("/chathub"))
                 .WithAutomaticReconnect()
                 .Build();
 
-            hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
+            hubConnection.On<string, string>("ReceiveMessageAll", (user, message) =>
             {
                 var encodedMsg = $"{user}: {message}";
                 messages.Add(encodedMsg);
@@ -34,7 +44,8 @@ namespace Website.Pages
         {
             if (hubConnection is not null)
             {
-                await hubConnection.SendAsync("SendMessage", userInput, messageInput);
+                await hubConnection.SendAsync("SendMessage", CurrentUser.Username, messageInput);
+                messageInput = string.Empty;
             }
         }
 

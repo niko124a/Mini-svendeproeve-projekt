@@ -20,19 +20,30 @@ namespace Database.Repositories
         {
             try
             {
-                User dbUser = discordLiteContext.User
+                return discordLiteContext.User
                 .Where(user => user.Username == username)
                 .SingleOrDefault();
-
-                return dbUser;
             }
             catch (Exception exception)
             {
 
                 throw;
             }
+        }
 
+        public User GetUserById(int id)
+        {
+            try
+            {
+                return discordLiteContext.User
+                    .Where(user => user.Id == id)
+                    .SingleOrDefault();
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
     }
 }
